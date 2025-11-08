@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+  --color-axiom-500: #00ffaa;
+  --color-green: #00ffaa;
+  --color-red: #ff3333;
+  --color-blue-600: #2563eb;
+
+  --background: #0a0a0a;
+  --foreground: #f8f8f8;
+  --card: #141414;
+  --card-foreground: #f8f8f8;
+
+  --popover: #0a0a0a;
+  --popover-foreground: #f8f8f8;
+
+  --primary: #f8f8f8;
+  --primary-foreground: #141414;
+
+  --secondary: #27272a;
+  --secondary-foreground: #f8f8f8;
+
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+
+  --accent: #00ffaa;
+  --accent-foreground: #0a0a0a;
+
+  --destructive: #ff3333;
+  --destructive-foreground: #f8f8f8;
+
+  --border: #ffffff1a;
+  --input: #27272a;
+  --ring: #f8f8f8;
+
+  --radius: 0.5rem;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.table-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  border-bottom: 1px solid var(--border);
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 1rem 1.5rem;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  transition: background-color 150ms;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-row:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.sort-active {
+  color: var(--foreground);
+}
+
+.price-up {
+  background-color: rgba(0, 255, 170, 0.1);
+}
+
+.price-down {
+  background-color: rgba(255, 51, 51, 0.1);
+}
+
+/* shimmer skeleton animation */
+.skeleton {
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.04));
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* smooth transitions used for price color flashes */
+.price-flash {
+  transition: background-color 450ms ease, color 450ms ease;
+}
+
+/* full-bleed section spans entire viewport width */
+.full-bleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* hide horizontal scrollbar for aesthetic gallery scrolling */
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
